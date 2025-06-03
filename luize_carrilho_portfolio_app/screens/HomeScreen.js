@@ -1,53 +1,95 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Image } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
+import { Feather, FontAwesome5, MaterialIcons, Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function HomeScreen() {
+
+export default function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Luíze Carrilho</Text>
-      <Text style={styles.subtitle}>
-        Desenvolvedora em transição para empreendedora da moda praia com alma artística e coração cósmico
+    
+    <ScrollView contentContainerStyle={styles.container}>
+        <Image
+    source={require('../assets/1000046501.jpg')}
+    style={styles.foto}/>
+      <Text style={styles.nome}>Luíze Carrilho</Text>
+      <Text style={styles.subtitulo}>
+        Oi, eu sou a Andreza Luíze Carrilho, estudante de Sistemas para Internet. Este é meu portfólio digital, onde compartilho meus projetos e habilidades na área de tecnologia.
       </Text>
-      <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>🌞 Sobre</Text></TouchableOpacity>
-      <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>📖 Acadêmico</Text></TouchableOpacity>
-      <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>💼 Profissional</Text></TouchableOpacity>
-      <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>⭐ Projetos</Text></TouchableOpacity>
-      <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>🌸 Jogo</Text></TouchableOpacity>
-    </View>
+
+      <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('Sobre')}>
+        <Feather name="sun" size={24} color="#6B445F" />
+        <Text style={styles.textoBotao}>Sobre Mim</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('Acadêmico')}>
+        <FontAwesome5 name="book" size={20} color="#6B445F" />
+        <Text style={styles.textoBotao}>Acadêmico</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('Profissional')}>
+        <MaterialIcons name="work" size={24} color="#6B445F" />
+        <Text style={styles.textoBotao}>Profissional</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('Projetos')}>
+        <Entypo name="star-outlined" size={24} color="#6B445F" />
+        <Text style={styles.textoBotao}>Projetos</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('JogoSenha')}>
+        <MaterialCommunityIcons name="flower" size={26} color="#6B445F" />
+        <Text style={styles.textoBotao}>Jogo Senha</Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  foto: {
+  width: 130,
+  height: 130,
+  borderRadius: 65,
+  marginBottom: 20,
+  borderWidth: 4,
+  borderColor: '#F7D7DF',
+},
   container: {
-    flex: 1,
-    backgroundColor: '#fceaff',
+    backgroundColor: '#FAEDF4',
+    flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 20
+    paddingVertical: 60,
+    paddingHorizontal: 20,
   },
-  title: {
-    fontSize: 36,
-    fontWeight: 'bold',
-    color: '#6a4c93',
-    marginBottom: 10,
-    textAlign: 'center'
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#5a5a5a',
+  nome: {
+    fontSize: 42,
     textAlign: 'center',
-    marginBottom: 30
+    color: '#6B445F',
+    fontWeight: '600',
+    lineHeight: 50,
+    marginBottom: 10,
   },
-  button: {
-    backgroundColor: '#f8d1e0',
-    padding: 15,
-    width: '100%',
+  subtitulo: {
+    textAlign: 'center',
+    fontSize: 16,
+    color: '#6B445F',
+    marginBottom: 40,
+    lineHeight: 24,
+  },
+  botao: {
+    backgroundColor: '#F7D7DF',
     borderRadius: 20,
-    marginBottom: 10
+    paddingVertical: 14,
+    paddingHorizontal: 24,
+    marginVertical: 10,
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
-  buttonText: {
-    color: '#6a4c93',
+  textoBotao: {
+    marginLeft: 12,
     fontSize: 18,
-    textAlign: 'center'
-  }
+    color: '#6B445F',
+    fontWeight: '500',
+  },
 });

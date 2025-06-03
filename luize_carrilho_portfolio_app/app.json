@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "luize-portfolio",
+    "slug": "luize-portfolio",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "platforms": ["ios", "android", "web"],
+    "sdkVersion": "52.0.0",
+    "react-native": {
+      "newArchEnabled": true},
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "jsEngine": "hermes",
+    "experimental": {
+      "newArchEnabled": true
+    }
+  }
+}
